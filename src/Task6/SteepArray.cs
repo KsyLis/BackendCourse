@@ -26,6 +26,7 @@ public static class SteepArray
     /// <param name="nums">Массив пользователя</param>
     public static void InitializingArray(int[] nums)
     {
+        _array = new int[nums.Length];
         nums.CopyTo(_array, 0);
     }
 
@@ -37,7 +38,7 @@ public static class SteepArray
     {
         int arrayElement = 0;
 
-        if (index < 0 || index >= _array.Length)
+        if (index >= 0 && index < _array.Length)
         {
             arrayElement = _array[index];
         }
@@ -54,11 +55,46 @@ public static class SteepArray
     /// <param name="num">Добавляемое число</param>
     public static void AddingToEnd(int num)
     {
-        int[] nums = [_array.Length + 1];
+        int[] nums = new int[_array.Length + 1];
 
         _array.CopyTo(nums, 0);
 
         nums[^1] = num;
+
+        _array = nums;
+    }
+
+    /// <summary>
+    /// Метод Вставка элемента по индексу
+    /// </summary>
+    /// <param name="index">Индекс пользователя</param>
+    /// <param name="element">Элемент пользователя</param>
+    public static void InsertingAnElementByIndex(int index, int element)
+    {
+        if (index == _array.Length - 1)
+        {
+            AddingToEnd(element);
+            return;
+        }
+        
+        int[] nums = new int[_array.Length + 1];
+
+        _array.CopyTo(nums, 0);
+
+        int prev = _array[index];
+
+        nums[index] = element;
+
+        int buff = 0;
+
+        for (int i = index + 1; i < nums.Length; i++)
+        {
+            buff = nums[i];
+
+            nums[i] = prev;
+
+            prev = buff;
+        }
 
         _array = nums;
     }
