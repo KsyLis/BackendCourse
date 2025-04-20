@@ -65,7 +65,7 @@ public static class SteepArray
     }
 
     /// <summary>
-    /// Метод Вставка элемента по индексу
+    /// Метод вставка элемента по индексу
     /// </summary>
     /// <param name="index">Индекс пользователя</param>
     /// <param name="element">Элемент пользователя</param>

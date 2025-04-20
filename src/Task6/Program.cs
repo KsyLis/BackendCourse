@@ -9,6 +9,8 @@ SteepArray.InitializingArray(arr);
 
 var result = SteepArray.GetItemByIndex(2);
 
+var t = SteepArray.Size;
+
 SteepArray.AddingToEnd(8);
 
 SteepArray.InsertingAnElementByIndex(4, 7);
