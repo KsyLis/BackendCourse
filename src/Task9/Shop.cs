@@ -105,9 +105,20 @@ public class Shop
         
         Console.WriteLine("Кол-во проданного товара добавлено");
     }
+
+    /// <summary>
+    /// Рассчет выручки магазинов
+    /// </summary>
+    public void CalculateStoreRevenues()
+    {
+        var revenueList = new List<Shop>();
+
+        for (var i = 0; i < revenueList.Count; i++)
+        {
+            var revenues = ApplesPrice * ApplesSold + OrangesPrice * OrangesSold;
+        }
+    }
 }
-
-
 
 /// <summary>
 /// Тип товара
