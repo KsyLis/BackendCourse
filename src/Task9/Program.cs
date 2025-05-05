@@ -11,4 +11,20 @@ List<Shop> file = FileOperations.ReadFile("Market.csv");
 
 file[1].AddItemToWarehouse(5, ProductType.Apples);
     
-file[3].AddQuantityOfProductSold(18, ProductType.Apples);
+file[3].AddQuantityOfProductSold(3, ProductType.Apples);
+
+for (int i = 0; i < file.Count; i++)
+{
+    file[i].CalculateStoreRevenues();
+}
+
+var r = file.OrderByDescending(x => x.Revenue).ToList();
+
+Console.WriteLine("Выручка магазинов в порядке убывания");
+
+foreach (var item in r)
+{
+    Console.WriteLine("{0}: {1}", item.Name, item.Revenue); 
+}
+
+FileOperations.CreateFile(file);

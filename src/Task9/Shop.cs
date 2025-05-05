@@ -44,6 +44,16 @@ public class Shop
     /// Кол-во проданных апельсинов
     /// </summary>
     public int OrangesSold { get; set; }
+    
+    /// <summary>
+    /// Выручка
+    /// </summary>
+    public int Revenue { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Name},{WarehouseSize},{ApplesPrice},{OrangesPrice},{ApplesWarehouse},{ApplesSold},{OrangesWarehouse},{OrangesSold} ";
+    }
 
     /// <summary>
     /// Добавление товара на склад
@@ -111,12 +121,7 @@ public class Shop
     /// </summary>
     public void CalculateStoreRevenues()
     {
-        var revenueList = new List<Shop>();
-
-        for (var i = 0; i < revenueList.Count; i++)
-        {
-            var revenues = ApplesPrice * ApplesSold + OrangesPrice * OrangesSold;
-        }
+        Revenue = ApplesPrice * ApplesSold + OrangesPrice * OrangesSold;
     }
 }
 

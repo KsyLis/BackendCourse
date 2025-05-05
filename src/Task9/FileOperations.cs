@@ -43,8 +43,12 @@ public static class FileOperations
     /// <summary>
     /// Метод создания файла
     /// </summary>
-    public static void CreateFile()
+    public static void CreateFile(List<Shop> shops)
     {
-        //File.Replace("Market2", "Market", "OriginalMarket");
+        var fileContent = "Название,Размер склада,Яблоки,Апельсины,Яблоки - Склад,Яблоки - Продано,Апельсины - Склад,Апельсины - Продано\n";
+
+        fileContent += string.Join('\n', shops);
+
+        File.WriteAllText("Market1.csv", fileContent);
     }
 }
